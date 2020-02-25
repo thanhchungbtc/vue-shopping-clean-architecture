@@ -4,6 +4,8 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -19,7 +21,7 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
     },
     "lib": [
       "esnext",
