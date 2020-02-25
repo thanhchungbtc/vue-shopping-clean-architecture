@@ -3,8 +3,8 @@ import {Container} from "inversify";
 import getDecorators from "inversify-inject-decorators";
 import CartRepository from "@/usecases/repository/cartRepository";
 import ProductRepository from "@/usecases/repository/productRepository";
-import CartRepositoryImpl from "@/infra/data/repository/cartRepository";
-import ProductRepositoryImpl from "@/infra/data/repository/productRepository";
+import CartRepositoryImpl from "@/infra/data/inMemoryRepository/cartRepository";
+import ProductRepositoryImpl from "@/infra/data/inMemoryRepository/productRepository";
 import {
   AddItemToCart,
   AddItemToCartImpl

@@ -1,6 +1,5 @@
 <template>
   <b-card class="my-2">
-    <!--    <b-card-img src="https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1">-->
     <b-card-img :src="product.thumbnailUrl || 'https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1'">
 
     </b-card-img>
@@ -8,7 +7,7 @@
       <h5 class=" text-success" v-text="product.name"></h5>
       <span class="text-danger mb-2">￥{{ product.price.toLocaleString() }}</span>
       <span class="mb-4" v-text="product.description"></span>
-      <b-button variant="success" block @click="addToCart">Add to cart</b-button>
+      <b-button variant="success" block @click="addToCart" :disabled="submitting">Add to cart <b-spinner v-if="submitting" variant="warning" type="grow" small></b-spinner></b-button>
     </div>
   </b-card>
 </template>
@@ -26,21 +25,27 @@
   export default class ProductComponent extends Vue {
     @Prop() readonly product!: Product;
 
+    submitting = false;
+
     private get store(): CartStore {
       return getModule(CartStore, this.$store);
     }
 
     addToCart() {
+      this.submitting = true;
       this.store.addProductToCart({
         product: this.product,
         quantity: 1
-      } as AddProductToCartPayload);
-      this.$bvToast.toast(`Item ${this.product.name} has been added`, {
-        title: 'Cart',
-        autoHideDelay: 5000,
-        toaster: 'b-toaster-bottom-right'
+      } as AddProductToCartPayload).finally(() => {
+        this.$bvToast.toast(`Item ${this.product.name} has been added`, {
+          title: 'Cart',
+          autoHideDelay: 5000,
+          toaster: 'b-toaster-bottom-right'
 
-      })
+        })
+        this.submitting = false;
+      });
+
     }
   }
 </script>

@@ -8,6 +8,11 @@ export interface ProductState {
   items: Product[];
 }
 
+
+export interface HomeViewModel {
+  products: Product[];
+}
+
 @Module({
   name: "product",
   namespaced: true

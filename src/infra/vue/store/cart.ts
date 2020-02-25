@@ -32,19 +32,35 @@ export class CartStore extends VuexModule implements CartState {
   }
 
   @Action
-  addProductToCart({product, quantity}: AddProductToCartPayload) {
-    this.addItemToCart
-      .execute(product, quantity)
-      .subscribe(
-        () => {
-          this.addItem({
-            product: product,
-            quantity: quantity
-          } as Cart);
-        },
-        e => {
-          console.log("BTC", e);
-        }
-      );
+  addProductToCart({product, quantity}: AddProductToCartPayload): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.addItemToCart
+        .execute(product, quantity)
+        .subscribe(
+          () => {
+            console.log('hit')
+            this.addItem({
+              product: product,
+              quantity: quantity
+            } as Cart);
+            resolve(true)
+          },
+          e => {
+            console.log("BTC", e);
+            reject(e)
+          }
+        );
+
+    })
+  }
+
+  get totalCartItem(): number {
+    return this.items.reduce((acc, cart) => acc + cart.quantity, 0)
+  }
+
+  get totalAmount(): number {
+    return this
+      .items
+      .reduce((acc, item) => acc + item.quantity * item.product.price, 0)
   }
 }

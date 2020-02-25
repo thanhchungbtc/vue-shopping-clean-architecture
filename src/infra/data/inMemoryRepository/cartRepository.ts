@@ -1,5 +1,5 @@
 import {Observable, of} from "rxjs";
-import {map} from "rxjs/operators";
+import {delay, map} from "rxjs/operators";
 import {injectable} from "inversify";
 import {Cart, Product} from "@/domain/entity";
 
@@ -10,6 +10,7 @@ export default class CartRepositoryImpl {
   public addItemToCart(product: Product, quantity: number): Observable<void> {
     this._carts.push({product, quantity});
     return of(1).pipe(
+      delay(1000),
       map(() => {
         return;
       })
@@ -18,6 +19,9 @@ export default class CartRepositoryImpl {
 
   public getTotalCartItem(): Observable<number> {
     const val = this._carts.length;
-    return of(val);
+    return of(null).pipe(
+      delay(1000),
+      map(() => val)
+    );
   }
 }

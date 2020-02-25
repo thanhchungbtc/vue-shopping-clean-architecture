@@ -16,13 +16,22 @@
         <span v-text="data.item.product.name"></span>
       </template>
       <template v-slot:cell(price)="{item}">
-        <span>${{ item.price.toLocaleString() }}</span>
+        <span>${{ item.price }}</span>
       </template>
       <template v-slot:cell(subtotal)="{item}">
-        <span>${{ item.subtotal.toLocaleString() }}</span>
+        <span>${{ item.subtotal }}</span>
+      </template>
+      <template v-slot:custom-foot>
+        <b-tr>
+          <b-td colspan="3"></b-td>
+          <b-td class="font-weight-bold">Total</b-td>
+          <b-td>${{ totalAmount }}</b-td>
+        </b-tr>
       </template>
     </b-table>
-    <b-button class="my-3" variant="info">Checkout</b-button>
+    <div class="d-flex justify-content-end">
+      <b-button class="my-3 px-5" variant="success">Checkout</b-button>
+    </div>
   </div>
 </template>
 
@@ -52,12 +61,15 @@
         thumbnail: cart.product.thumbnailUrl,
         name: cart.product.name,
         description: cart.product.description,
-        price: cart.product.price,
+        price: cart.product.price.toLocaleString(),
         quantity: cart.quantity,
-        subtotal: cart.quantity * cart.product.price
+        subtotal: (cart.quantity * cart.product.price).toLocaleString()
       }))
     }
 
+    get totalAmount(): string {
+      return this.cartStore.totalAmount.toLocaleString()
+    }
 
   }
 </script>
