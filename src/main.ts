@@ -1,2 +1,1 @@
-import "./di";
-import "./infra/vue/main";
+import "./app/main"

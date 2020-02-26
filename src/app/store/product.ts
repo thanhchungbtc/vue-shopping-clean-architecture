@@ -1,6 +1,6 @@
 import {lazyInject} from "@/di";
 
-import {Module, VuexModule, Mutation, Action} from "vuex-module-decorators";
+import {Action, Module, Mutation, VuexModule} from "vuex-module-decorators";
 import {Product} from "@/domain/entity";
 import {GetAllProduct} from "@/usecases/interactor/getAllProduct";
 

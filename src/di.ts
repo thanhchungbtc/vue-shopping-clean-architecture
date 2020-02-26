@@ -3,20 +3,11 @@ import {Container} from "inversify";
 import getDecorators from "inversify-inject-decorators";
 import CartRepository from "@/usecases/repository/cartRepository";
 import ProductRepository from "@/usecases/repository/productRepository";
-import CartRepositoryImpl from "@/infra/data/inMemoryRepository/cartRepository";
-import ProductRepositoryImpl from "@/infra/data/inMemoryRepository/productRepository";
-import {
-  AddItemToCart,
-  AddItemToCartImpl
-} from "@/usecases/interactor/addItemToCart";
-import {
-  GetAllProduct,
-  GetAllProductImpl
-} from "@/usecases/interactor/getAllProduct";
-import {
-  GetTotalCartItem,
-  GetTotalCartItemImpl
-} from "@/usecases/interactor/getTotalCartItem";
+import CartRepositoryImpl from "@/data/inMemoryRepository/cartRepository";
+import ProductRepositoryImpl from "@/data/inMemoryRepository/productRepository";
+import {AddItemToCart, AddItemToCartImpl} from "@/usecases/interactor/addItemToCart";
+import {GetAllProduct, GetAllProductImpl} from "@/usecases/interactor/getAllProduct";
+import {GetTotalCartItem, GetTotalCartItemImpl} from "@/usecases/interactor/getTotalCartItem";
 
 const container = new Container();
 

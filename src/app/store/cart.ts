@@ -1,5 +1,5 @@
 import {lazyInject} from '@/di';
-import {Module, VuexModule, Mutation, Action} from "vuex-module-decorators";
+import {Action, Module, Mutation, VuexModule} from "vuex-module-decorators";
 import {Cart, Product} from '@/domain/entity';
 import {AddItemToCart} from '@/usecases/interactor/addItemToCart';
 
@@ -17,9 +17,18 @@ export interface AddProductToCartPayload {
   namespaced: true
 })
 export class CartStore extends VuexModule implements CartState {
+  public items: Cart[] = [];
   @lazyInject("AddItemToCart") private addItemToCart!: AddItemToCart;
 
-  public items: Cart[] = [];
+  get totalCartItem(): number {
+    return this.items.reduce((acc, cart) => acc + cart.quantity, 0)
+  }
+
+  get totalAmount(): number {
+    return this
+      .items
+      .reduce((acc, item) => acc + item.quantity * item.product.price, 0)
+  }
 
   @Mutation
   addItem(cart: Cart) {
@@ -38,7 +47,6 @@ export class CartStore extends VuexModule implements CartState {
         .execute(product, quantity)
         .subscribe(
           () => {
-            console.log('hit')
             this.addItem({
               product: product,
               quantity: quantity
@@ -52,15 +60,5 @@ export class CartStore extends VuexModule implements CartState {
         );
 
     })
-  }
-
-  get totalCartItem(): number {
-    return this.items.reduce((acc, cart) => acc + cart.quantity, 0)
-  }
-
-  get totalAmount(): number {
-    return this
-      .items
-      .reduce((acc, item) => acc + item.quantity * item.product.price, 0)
   }
 }

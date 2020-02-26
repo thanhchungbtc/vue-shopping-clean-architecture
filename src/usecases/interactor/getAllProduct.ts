@@ -1,8 +1,8 @@
 import {Product} from "@/domain/entity";
 import {Observable, of} from "rxjs";
-import {injectable, inject} from "inversify";
+import {inject, injectable} from "inversify";
 import ProductRepository from "@/usecases/repository/productRepository";
-import {map, switchMap, tap} from "rxjs/operators";
+import {switchMap, tap} from "rxjs/operators";
 
 export interface OutputBoundary {
   renderer(products: Product[]): void;
@@ -33,12 +33,12 @@ export interface GetAllProduct {
 
 @injectable()
 export class GetAllProductImpl implements GetAllProduct {
+  presenter = new ProductListPresenter()
+
   constructor(
     @inject("ProductRepository") public productRepo: ProductRepository
   ) {
   }
-
-  presenter = new ProductListPresenter()
 
   execute(): Observable<Product[]> {
     return of(null).pipe(
