@@ -10,10 +10,15 @@ export default class ProductRepositoryImpl {
 
   constructor() {
     const _images = [
-      "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img9.jpg?raw=1",
+      "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img1.jpg?raw=1",
+      "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img2.jpg?raw=1",
       "https://www.dropbox.com/s/78fot6w894stu3n/img3.jpg?raw=1",
+      "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img4.jpg?raw=1",
+      "https://www.dropbox.com/s/d45c3pap1h4cu0y/img5.jpg?raw=1",
       "https://www.dropbox.com/s/rjj1vtdx79xptu0/img6.jpeg?raw=1",
       "https://www.dropbox.com/s/miym588nx2lscqt/img7.jpg?raw=1",
+      "https://www.dropbox.com/s/miym588nx2lscqt/img8.jpg?raw=1",
+      "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img9.jpg?raw=1",
     ]
     console.log('hti')
     const products = []

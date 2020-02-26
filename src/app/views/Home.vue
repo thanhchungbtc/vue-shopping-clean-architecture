@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import ProductList from "./ProductList";
+  import ProductList from "@/app/components/ProductList";
   import {productStore} from "@/app/store";
 
   export default {
@@ -15,6 +15,7 @@
 
     created() {
       productStore.fetchItems()
-    }
+    },
+
   }
 </script>

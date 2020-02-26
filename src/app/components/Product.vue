@@ -5,7 +5,6 @@
       <v-img height="200"
              :src="product.thumbnailUrl"/>
 
-
       <p class="mt-6 mb-0 title success--text">{{ product.name }}</p>
 
       <p class="pink--text body-1">${{ product.price.toLocaleString() }}</p>
