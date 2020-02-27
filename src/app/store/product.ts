@@ -1,16 +1,11 @@
-import {lazyInject} from "@/di";
+import { lazyInject } from "@/di";
 
-import {Action, Module, Mutation, VuexModule} from "vuex-module-decorators";
-import {Product} from "@/domain/entity";
-import {GetAllProduct} from "@/usecases/interactor/getAllProduct";
+import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
+import { Product } from "@/domain/entity";
+import { GetAllProduct } from "@/usecases/interactor/getAllProduct";
 
 export interface ProductState {
   items: Product[];
-}
-
-
-export interface HomeViewModel {
-  products: Product[];
 }
 
 @Module({
@@ -28,9 +23,8 @@ export class ProductStore extends VuexModule implements ProductState {
   }
 
   @Action
-  fetchItems() {
-    this.getAllProduct.execute().subscribe(list => {
-      this.setItems(list);
-    });
+  async fetchItems() {
+    const list = await this.getAllProduct.execute().toPromise();
+    this.setItems(list);
   }
 }

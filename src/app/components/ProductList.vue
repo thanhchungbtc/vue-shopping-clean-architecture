@@ -6,29 +6,33 @@
       </v-col>
     </v-row>
   </div>
-
 </template>
 <script lang="ts">
-  import Vue from 'vue'
-  import ProductComponent from '@/app/components/Product.vue'
-  import {productStore} from "@/app/store";
+import Vue from "vue";
+import ProductComponent from "@/app/components/Product.vue";
+import { ProductStore } from "@/app/store/product";
+import { getModule } from "vuex-module-decorators";
+import { Product } from "@/domain/entity";
 
-  export default Vue.extend({
-    components: {
-      Product: ProductComponent
+export default Vue.extend({
+  components: {
+    Product: ProductComponent
+  },
+
+  computed: {
+    productStore(): ProductStore {
+      return getModule(ProductStore, this.$store);
     },
 
+    products(): Product[] {
+      return this.productStore.items;
+    }
+  },
 
-    computed: {
-      products() {
-        return productStore.items
-      }
-    },
-
-    data() {
-      return {
-        loading: false,
-      }
-    },
-  })
+  data() {
+    return {
+      loading: false
+    };
+  }
+});
 </script>

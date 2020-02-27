@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1582785406033" clover="3.2.0">
+  <project timestamp="1582785406034" name="All files">
+    <metrics statements="99" coveredstatements="72" conditionals="2" coveredconditionals="2" methods="31" coveredmethods="11" elements="132" coveredelements="85" complexity="0" loc="99" ncloc="99" packages="5" files="11" classes="11"/>
+    <package name="src">
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="di.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\di.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.components">
+      <metrics statements="13" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+      <file name="Product.vue" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\app\components\Product.vue">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+      <file name="ProductList.vue" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\app\components\ProductList.vue">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.store">
+      <metrics statements="36" coveredstatements="33" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="7"/>
+      <file name="cart.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\app\store\cart.ts">
+        <metrics statements="16" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\app\store\index.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+      <file name="product.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\app\store\product.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.data.inMemoryRepository">
+      <metrics statements="23" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="cartRepository.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\data\inMemoryRepository\cartRepository.ts">
+        <metrics statements="11" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="productRepository.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\data\inMemoryRepository\productRepository.ts">
+        <metrics statements="12" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.usecases.interactor">
+      <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="addItemToCart.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\usecases\interactor\addItemToCart.ts">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+      </file>
+      <file name="getAllProduct.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\usecases\interactor\getAllProduct.ts">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="getTotalCartItem.ts" path="C:\Users\B7911\Desktop\vue-shopping-clean-architecture\src\usecases\interactor\getTotalCartItem.ts">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

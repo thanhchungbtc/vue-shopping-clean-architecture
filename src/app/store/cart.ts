@@ -1,7 +1,7 @@
-import {lazyInject} from '@/di';
-import {Action, Module, Mutation, VuexModule} from "vuex-module-decorators";
-import {Cart, Product} from '@/domain/entity';
-import {AddItemToCart} from '@/usecases/interactor/addItemToCart';
+import { lazyInject } from "@/di";
+import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
+import { Cart, Product } from "@/domain/entity";
+import { AddItemToCart } from "@/usecases/interactor/addItemToCart";
 
 export interface CartState {
   items: Cart[];
@@ -21,44 +21,32 @@ export class CartStore extends VuexModule implements CartState {
   @lazyInject("AddItemToCart") private addItemToCart!: AddItemToCart;
 
   get totalCartItem(): number {
-    return this.items.reduce((acc, cart) => acc + cart.quantity, 0)
+    return this.items.reduce((acc, cart) => acc + cart.quantity, 0);
   }
 
   get totalAmount(): number {
-    return this
-      .items
-      .reduce((acc, item) => acc + item.quantity * item.product.price, 0)
+    return this.items.reduce(
+      (acc, item) => acc + item.quantity * item.product.price,
+      0
+    );
   }
 
   @Mutation
   addItem(cart: Cart) {
-    const idx = this.items.findIndex((c) => c.product.id === cart.product.id)
+    const idx = this.items.findIndex(c => c.product.id === cart.product.id);
     if (idx >= 0) {
-      this.items[idx].quantity += cart.quantity
+      this.items[idx].quantity += cart.quantity;
     } else {
       this.items.push(cart);
     }
   }
 
   @Action
-  addProductToCart({product, quantity}: AddProductToCartPayload): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      this.addItemToCart
-        .execute(product, quantity)
-        .subscribe(
-          () => {
-            this.addItem({
-              product: product,
-              quantity: quantity
-            } as Cart);
-            resolve(true)
-          },
-          e => {
-            console.log("BTC", e);
-            reject(e)
-          }
-        );
-
-    })
+  async addProductToCart({ product, quantity }: AddProductToCartPayload) {
+    await this.addItemToCart.execute(product, quantity).toPromise();
+    this.addItem({
+      product: product,
+      quantity: quantity
+    } as Cart);
   }
 }
