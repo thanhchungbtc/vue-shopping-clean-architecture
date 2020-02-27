@@ -2,8 +2,10 @@
 
 Clean architecture with vue, shopping cart demo
 
+Demo 
 
-Demo
+![](https://travis-ci.org/thanhchungbtc/vue-shopping-clean-architecture.svg?branch=master)
+
 
 
 ## Development
@@ -41,6 +43,12 @@ container
   .bind<CartRepository>("CartRepository")
   .to(CartRepositoryImpl)
   .inSingletonScope();
+```
+Usage
+```ts
+constructor(
+    @inject("CartRepository") private cartRepository: CartRepository
+) {}
 ```
 
 - `vuetify`\

@@ -20,7 +20,6 @@ export default class ProductRepositoryImpl {
       "https://www.dropbox.com/s/miym588nx2lscqt/img8.jpg?raw=1",
       "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img9.jpg?raw=1",
     ]
-    console.log('hti')
     const products = []
     for (let i = 0; i < 20; i++) {
       products.push({
