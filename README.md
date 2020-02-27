@@ -1,34 +1,33 @@
-# vue-shopping-clean-architecture
+# Clean Architecture VueJS
 
-## Project setup
-```
-yarn install
-```
+Clean architecture with vue, shopping cart demo
 
-### Compiles and hot-reloads for development
-```
+
+Demo
+
+
+## Development
+```sh
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
+## Production
+```sh
 yarn build
 ```
 
-### Run your unit tests
-```
+## Unit test
+```sh
 yarn test:unit
 ```
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
+## Description
+This is an example of implementation of Clean Architecture in Vue
 
-### Lints and fixes files
-```
-yarn lint
-```
+It has major of 4 layer:
+- Entity layer 
+- Repository layer 
+- Usecase layer
+- Application layer - where the ui happend
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ ![sdf](./github/clean-architecture.jpg)

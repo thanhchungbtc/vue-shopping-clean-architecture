@@ -1,5 +1,5 @@
 <template>
-  <v-menu :close-on-content-click="false" offset-y>
+  <v-menu offset-y>
     <template v-slot:activator="{on}">
       <v-btn color="success" v-on="on">
         Checkout
@@ -20,7 +20,7 @@
       </v-list>
 
       <v-divider></v-divider>
-      <v-card-text>
+      <v-card-text v-if="carts.length > 0">
 
         <v-list>
 
@@ -45,8 +45,14 @@
         </v-list>
 
         <v-card-actions>
-          <v-btn block color="primary" rounded @click="$router.push({name: 'Checkout'})">Proceed to checkout</v-btn>
+          <v-btn block color="primary" rounded @click="$route.name !== 'Checkout' && $router.push({name: 'Checkout'})">
+            Proceed to checkout
+          </v-btn>
         </v-card-actions>
+      </v-card-text>
+
+      <v-card-text v-else>
+        <p>No item</p>
       </v-card-text>
 
     </v-card>
