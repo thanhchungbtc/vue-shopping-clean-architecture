@@ -2,7 +2,7 @@
 
 Clean architecture with vue, shopping cart demo
 
-Demo 
+[Demo](https://thanhchungbtc.github.io/vue-shopping)
 
 ![](https://travis-ci.org/thanhchungbtc/vue-shopping-clean-architecture.svg?branch=master)
 
