@@ -4,18 +4,22 @@
   </div>
 </template>
 
-<script>
-  import ProductList from "@/app/components/ProductList";
-  import {productStore} from "@/app/store";
+<script lang="ts">
+  import ProductList from "@/app/components/ProductList.vue" ;
+  import {ProductStore} from "@/app/store/product";
+  import {getModule} from "vuex-module-decorators";
+  import {Component, Vue} from "vue-property-decorator";
 
-  export default {
-    name: 'Home',
-
-    components: {ProductList},
+  @Component({
+    components: {ProductList}
+  })
+  export default class Home extends Vue {
+    get productStore(): ProductStore {
+      return getModule(ProductStore, this.$store)
+    }
 
     created() {
-      productStore.fetchItems()
-    },
-
+      this.productStore.fetchItems()
+    }
   }
 </script>

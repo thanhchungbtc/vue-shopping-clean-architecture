@@ -18,7 +18,4 @@ const store = new Vuex.Store<RootState>({
   }
 });
 
-const productStore = getModule(ProductStore, store)
-const cartStore = getModule(CartStore, store)
-export {productStore, cartStore}
 export default store;

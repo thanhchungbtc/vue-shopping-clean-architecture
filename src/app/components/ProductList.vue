@@ -8,31 +8,29 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import ProductComponent from "@/app/components/Product.vue";
-import { ProductStore } from "@/app/store/product";
-import { getModule } from "vuex-module-decorators";
-import { Product } from "@/domain/entity";
+  import Vue from "vue";
+  import ProductComponent from "@/app/components/Product.vue";
+  import {ProductStore} from "@/app/store/product";
+  import {getModule} from "vuex-module-decorators";
+  import {Product} from "@/domain/entity";
+  import {Component} from "vue-property-decorator";
+  import {CartStore} from "@/app/store/cart";
 
-export default Vue.extend({
-  components: {
-    Product: ProductComponent
-  },
+  @Component({
+    components: {
+      Product: ProductComponent
+    }
+  })
+  export default class ProductListComponent extends Vue {
+    loading = false
 
-  computed: {
-    productStore(): ProductStore {
-      return getModule(ProductStore, this.$store);
-    },
+    get productStore(): ProductStore {
+      return getModule(ProductStore, this.$store)
+    }
 
-    products(): Product[] {
+    get products(): Product[] {
       return this.productStore.items;
     }
-  },
 
-  data() {
-    return {
-      loading: false
-    };
   }
-});
 </script>

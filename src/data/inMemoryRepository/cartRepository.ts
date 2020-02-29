@@ -1,10 +1,11 @@
 import {Observable, of} from "rxjs";
-import {delay, map} from "rxjs/operators";
+import {tap, map} from "rxjs/operators";
 import {injectable} from "inversify";
 import {Cart, Product} from "@/domain/entity";
+import CartRepository from "@/usecases/repository/cartRepository";
 
 @injectable()
-export default class CartRepositoryImpl {
+export default class CartRepositoryImpl implements CartRepository {
   private _carts: Cart[] = [];
 
   public addItemToCart(product: Product, quantity: number): Observable<void> {
@@ -22,6 +23,17 @@ export default class CartRepositoryImpl {
     return of(null).pipe(
       // delay(1000),
       map(() => val)
+    );
+  }
+
+  proceedCheckout(): Observable<void> {
+    return of(null).pipe(
+      tap(() => {
+        this._carts = []
+      }),
+      map(() => {
+        return
+      })
     );
   }
 }

@@ -20,7 +20,7 @@
       <v-card-actions class="pa-4">
         <v-btn @click="$router.push({name: 'Home'})">Continue shopping</v-btn>
         <v-spacer/>
-        <v-btn class="px-4" color="primary" @click="success = !success">Confirm</v-btn>
+        <v-btn class="px-4" color="primary" @click="checkout">Confirm</v-btn>
       </v-card-actions>
     </v-card>
     <p class="text-center" v-else>Your order has been made and will be proceeded soon.</p>
@@ -28,36 +28,44 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import {cartStore} from "@/app/store";
+  import {CartStore} from "@/app/store/cart";
+  import {getModule} from "vuex-module-decorators";
+  import {Component, Vue} from "vue-property-decorator";
 
-  export default Vue.extend({
-    data() {
-      return {
-        success: false,
-        headers: [
-          {value: "thumbnailUrl", width: 50, class: "title"},
-          {value: "product", text: "Product", width: 300, class: "header"},
-          {value: "quantity", text: "Quantity", class: "header"},
-          {value: "price", text: "Price", class: "header"},
-          {value: "subtotal", text: "Subtotal", class: "header"},
 
-        ]
-      }
-    },
-    computed: {
-      carts() {
-        return cartStore.items.map(item => ({
-          thumbnailUrl: item.product.thumbnailUrl,
-          product: item.product.name,
-          description: item.product.description,
-          quantity: item.quantity,
-          price: `$${item.product.price.toLocaleString()}`,
-          subtotal: `$${(item.quantity * item.product.price).toLocaleString()}`,
-        }))
-      }
+  @Component
+  export default class Checkout extends Vue {
+
+    headers = [
+      {value: "thumbnailUrl", width: 50, class: "title"},
+      {value: "product", text: "Product", width: 300, class: "header"},
+      {value: "quantity", text: "Quantity", class: "header"},
+      {value: "price", text: "Price", class: "header"},
+      {value: "subtotal", text: "Subtotal", class: "header"},
+
+    ]
+    success = false
+
+    get cartStore(): CartStore {
+      return getModule(CartStore, this.$store)
     }
-  })
+
+    get carts() {
+      return this.cartStore.items.map(item => ({
+        thumbnailUrl: item.product.thumbnailUrl,
+        product: item.product.name,
+        description: item.product.description,
+        quantity: item.quantity,
+        price: `$${item.product.price.toLocaleString()}`,
+        subtotal: `$${(item.quantity * item.product.price).toLocaleString()}`,
+      }))
+    }
+
+    async checkout() {
+      await this.cartStore.checkout()
+      this.success = true
+    }
+  }
 </script>
 
 <style>

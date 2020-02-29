@@ -67,8 +67,10 @@ describe("CartStore", () => {
 
         // assert
         expect(module.items.length).toEqual(1);
+        // add the same product to cart, the quantity is increased but the number of item is the same
         await module.addProductToCart({ product: product1, quantity: 1 });
         expect(module.items.length).toEqual(1);
+        // add another product, the item should be increased
         await module.addProductToCart({ product: product2, quantity: 1 });
         expect(module.items.length).toEqual(2);
       });

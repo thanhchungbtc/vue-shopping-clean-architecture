@@ -17,29 +17,28 @@
 </template>
 <script lang="ts">
   import Vue from 'vue'
-  import {cartStore} from "@/app/store";
+  import {CartStore} from "@/app/store/cart";
+  import {getModule} from "vuex-module-decorators";
+  import {Component, Prop} from "vue-property-decorator";
+  import {Product} from "@/domain/entity";
 
-  export default Vue.extend({
-    props: {
-      product: {
-        type: Object
-      }
-    },
 
-    data() {
-      return {
-        loading: false,
-      }
-    },
+  @Component
+  export default class ProductComponent extends Vue {
+    @Prop({required: true}) product!: Product
 
-    methods: {
-      addToCart() {
-        this.loading = true;
-        cartStore.addProductToCart({product: this.product, quantity: 1})
-          .finally(() => {
-            this.loading = false
-          })
-      }
+    loading = false
+
+    get cartStore(): CartStore {
+      return getModule(CartStore, this.$store)
     }
-  })
+
+    addToCart() {
+      this.loading = true;
+      this.cartStore.addProductToCart({product: this.product, quantity: 1})
+        .finally(() => {
+          this.loading = false
+        })
+    }
+  }
 </script>

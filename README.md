@@ -67,7 +67,7 @@ const cartStore = getModule(CartStore, this.$store)
 cartStore.addProductToCart({product: this.product, quantity: 1})
 ```
 
-- 
+ 
 
 ## TODO
 - [x] In memory repository

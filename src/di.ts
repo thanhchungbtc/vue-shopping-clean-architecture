@@ -8,6 +8,9 @@ import ProductRepositoryImpl from "@/data/inMemoryRepository/productRepository";
 import {AddItemToCart, AddItemToCartImpl} from "@/usecases/interactor/addItemToCart";
 import {GetAllProduct, GetAllProductImpl} from "@/usecases/interactor/getAllProduct";
 import {GetTotalCartItem, GetTotalCartItemImpl} from "@/usecases/interactor/getTotalCartItem";
+import {ProceedCheckout, ProceedCheckoutImpl} from "@/usecases/interactor/proceedCheckout";
+import {ProductStore} from "@/app/store/product";
+import {getModule} from "vuex-module-decorators";
 
 const container = new Container();
 
@@ -31,6 +34,10 @@ container
 container
   .bind<GetTotalCartItem>("GetTotalCartItem")
   .to(GetTotalCartItemImpl)
+  .inSingletonScope();
+container
+  .bind<ProceedCheckout>("ProceedCheckout")
+  .to(ProceedCheckoutImpl)
   .inSingletonScope();
 
 const {lazyInject} = getDecorators(container);

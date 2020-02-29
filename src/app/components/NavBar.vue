@@ -18,9 +18,9 @@
   </v-app-bar>
 
 </template>
-<script>
+<script lang="ts">
   import Vue from 'vue'
-  import CartPreview from "@/app/components/CartPreview";
+  import CartPreview from "@/app/components/CartPreview.vue";
 
   export default Vue.extend({
     components: {CartPreview}

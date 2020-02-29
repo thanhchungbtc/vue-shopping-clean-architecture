@@ -61,25 +61,32 @@
 </template>
 <script lang="ts">
   import Vue from 'vue'
-  import {cartStore} from "../store";
+  import {getModule} from "vuex-module-decorators";
+  import {CartStore} from "@/app/store/cart";
+  import {Component} from "vue-property-decorator";
 
-  export default Vue.extend({
-    computed: {
-      totalItem() {
-        return cartStore.totalCartItem || 0;
-      },
 
-      carts() {
-        return cartStore.items.map(cart => ({
-          thumbnail: cart.product.thumbnailUrl,
-          name: cart.product.name,
-          description: cart.product.description,
-          price: cart.product.price.toLocaleString(),
-          quantity: cart.quantity,
-          subtotal: (cart.quantity * cart.product.price).toLocaleString()
-        }))
-      }
+  @Component
+  export default class CartPreview extends Vue {
+    get cartStore(): CartStore {
+      return getModule(CartStore, this.$store)
     }
 
-  })
+    get totalItem() {
+      return this.cartStore.totalCartItem || 0;
+    }
+
+    get carts() {
+      return this.cartStore.items.map(cart => ({
+        thumbnail: cart.product.thumbnailUrl,
+        name: cart.product.name,
+        description: cart.product.description,
+        price: cart.product.price.toLocaleString(),
+        quantity: cart.quantity,
+        subtotal: (cart.quantity * cart.product.price).toLocaleString()
+      }))
+    }
+
+  }
+
 </script>
