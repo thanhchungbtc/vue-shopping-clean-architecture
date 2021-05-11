@@ -15,7 +15,7 @@
     "core-js": "^3.6.4",
     "inversify": "^5.0.1",
     "inversify-inject-decorators": "^3.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.6.2",
     "sinon": "^9.0.0",
